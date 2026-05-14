@@ -54,7 +54,9 @@ The app needs a few secret keys to connect to Supabase and the NVD API.
 Create a file called `.env` in the root of the project and add these:
 
 SUPABASE_URL=your_supabase_project_url
+
 SUPABASE_KEY=your_supabase_service_role_key
+
 NVD_API_KEY=your_nvd_api_key
 
 Where to find these:
@@ -123,6 +125,7 @@ Gets a single CVE by its ID. Used on the CVE detail page.
 
 Example:
 GET /api/cves/CVE-2026-21897
+
 ---
 
 ### GET /api/sync
