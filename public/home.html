@@ -1,0 +1,144 @@
+<html>
+    <head>
+        <title>Home</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark align-items-center" style="background-color: #1e2130;">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold" style="color: #e05c5c;" href="/index.html">Is It Critical?</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="home.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="help.html">Help</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div id="cont" class="container mt-3">
+            <div class="text-center">
+                <h3>Vulnerability Dashboard</h3>
+                <h6><i>This web app uses the NVD API but is not endorsed or certified by the NVD</i></h6>
+            </div>
+
+            <h4 class="" style="text-align: center;">CVE Summary</h4>
+            <div class="row mt-4 g-3 justify-content-center">
+                <div class="col-2">
+                    <div class="p-3 border-start border-danger border-3" style="background-color: #1e2130;">
+                        <p class="text-danger mb-1 fw-bold">CRITICAL</p>
+                        <h4 id="sev-critical" class="mb-0">--</h4>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="p-3 border-start border-3" style="background-color: #1e2130; border-color: #e8820c !important;">
+                        <p style="color: #e8820c;" class="mb-1 fw-bold">HIGH</p>
+                        <h4 id="sev-high" class="mb-0">--</h4>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="p-3 border-start border-warning border-3" style="background-color: #1e2130;">
+                        <p class="text-warning mb-1 fw-bold fw-bold">MEDIUM</p>
+                        <h4 id="sev-medium" class="mb-0">--</h4>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="p-3 border-start border-success border-3" style="background-color: #1e2130;">
+                        <p class="text-success mb-1 fw-bold">LOW</p>
+                        <h4 id="sev-low" class="mb-0">--</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4 g-3">
+                <div class="col-6">
+                    <h5 style="text-align: center;"> CVE Attack Vector Counts</h5>
+                    <div style="position: relative; width: 100%; height: 40vh;">
+                        <canvas id="attack-vectors"></canvas>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <h5 style="text-align: center;">CVE Severity Counts</h5>
+                    <div style="position: relative; width: 100%; height: 40vh;">
+                        <canvas id="severity-distribution"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="mt-2" style="text-align: center;">CVE Feed</h4>
+            <div id="search" class="row g-2 mt-4 justify-content-center">
+                <div class="col-5">
+                    <input type="text" id="keyword-input" class="form-control" placeholder="Search keyword, vendor, CVE ID..." aria-label="Search">
+                </div>
+                <div class="col-2">
+                    <select id="date-filter" class="form-select" aria-label="Date range filter">
+                        <option value="7">Last 7 Days</option>
+                        <option selected value="30">Last 30 Days</option>
+                        <option value="90">Last 90 Days</option>
+                        <option value="365">Last 365 Days</option>
+                        <option value="all">All</option>
+                    </select>
+                </div>
+                <div class="col-2">
+                    <select id="severity-filter" class="form-select" aria-label="Severity filter">
+                        <option selected value="all">All Severities</option>
+                        <option value="critical">Critical</option>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+                <div class="col-auto">
+                    <button id="search-btn" class="btn btn-danger" type="submit">Search</button>
+                </div>
+            </div>
+
+            <table id="cve-table" class="table table-dark table-hover mt-4 sortable">
+                <thead>
+                    <tr>
+                        <th>CVE ID</th>
+                        <th>Published</th>
+                        <th>Last Modified</th>
+                        <th>Severity</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody id="cve-body">
+                </tbody>
+            </table>
+            <nav>
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link" id="prev-btn">Previous</a>
+                    </li>
+                    <li class="page-item disabled">
+                        <span class="page-link" id="page-indicator">Page 1 of 100</span>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" id="next-btn">Next</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+        
+
+    
+    <script src="js/home.js" defer></script>
+    <script src="js/sorttable.js"></script>
+    </body>
+</html>

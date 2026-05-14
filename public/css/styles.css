@@ -1,0 +1,13 @@
+body {
+    background-color: #252836;
+    color: #cdd6f4;
+}
+
+#search {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+

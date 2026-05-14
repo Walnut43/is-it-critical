@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <title>Help</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark align-items-center" style="background-color: #1e2130;">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold" style="color: #e05c5c;" href="/index.html">Is It Critical?</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="home.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="help.html">Help</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container mt-4">
+            <div class="text-center mb-4">
+                <h3>Help</h3>
+                <h6><i>How to use Is It Critical?</i></h6>
+            </div>
+
+            <!-- How to use -->
+            <div class="p-3 mb-3" style="background-color: #1e2130;">
+                <p class="fw-bold mb-3" style="color: #e05c5c;">How to Use This App</p>
+                <ol style="color: #cdd6f4;">
+                    <li class="mb-2">Use the <strong>search bar</strong> to find CVEs by keyword, vendor, or CVE ID</li>
+                    <li class="mb-2">Use the <strong>date range filter</strong> to narrow results by how recently they were published</li>
+                    <li class="mb-2">Use the <strong>severity filter</strong> to show only CVEs of a specific severity level</li>
+                    <li class="mb-2">Click any <strong>CVE row</strong> in the feed to view detailed information about that vulnerability</li>
+                    <li class="mb-2">Click any <strong>column header</strong> in the CVE feed to sort by that column</li>
+                </ol>
+            </div>
+
+            <!-- Severity color key -->
+            <div class="p-3 mb-3" style="background-color: #1e2130;">
+                <p class="fw-bold mb-3" style="color: #e05c5c;">Severity Color Key</p>
+                <ul class="list-unstyled mb-0" style="color: #cdd6f4;">
+                    <li class="mb-2">
+                        <span style="color: #e05c5c;" class="fw-bold">● Critical</span>: Score 9.0 to 10.0. Extremely dangerous, often remotely exploitable with no authentication required.
+                    </li>
+                    <li class="mb-2">
+                        <span style="color: #e8820c;" class="fw-bold">● High</span>: Score 7.0 to 8.9. Serious vulnerabilities that are likely to be exploited.
+                    </li>
+                    <li class="mb-2">
+                        <span style="color: #e0c060;" class="fw-bold">● Medium</span>: Score 4.0 to 6.9. Moderate risk, often requiring some conditions to exploit.
+                    </li>
+                    <li class="mb-2">
+                        <span style="color: #5ec875;" class="fw-bold">● Low</span>: Score 0.1 to 3.9. Minimal risk, typically difficult to exploit or limited in impact.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- FAQ -->
+            <div class="p-3 mb-3" style="background-color: #1e2130;">
+                <p class="fw-bold mb-3" style="color: #e05c5c;">FAQ</p>
+
+                <p class="fw-bold mb-1" style="color: #cdd6f4;">Why are there so many vulnerabilities?</p>
+                <p class="mb-3" style="color: #cdd6f4;">Software vulnerabilities are discovered constantly across thousands of products worldwide. The NVD receives hundreds of new CVE submissions every day from researchers, vendors, and automated scanning tools.</p>
+
+                <p class="fw-bold mb-1" style="color: #cdd6f4;">How often is the data updated?</p>
+                <p class="mb-3" style="color: #cdd6f4;">This app syncs with the NVD periodically to keep data fresh. The database reflects CVEs published within the last 120 days.</p>
+
+                <p class="fw-bold mb-1" style="color: #cdd6f4;">Why do some CVEs show N/A for severity?</p>
+                <p class="mb-3" style="color: #cdd6f4;">Some CVEs are still awaiting analysis by NVD staff and have not yet been assigned a CVSS score. Others may have been published before the CVSS scoring system existed.</p>
+
+                <p class="fw-bold mb-1" style="color: #cdd6f4;">Why does my search return no results?</p>
+                <p class="mb-0" style="color: #cdd6f4;">Try broadening your search. Use a shorter keyword, change the date range to a longer window, or set severity to All Severities. The database contains CVEs from the last 120 days so very old CVEs will not appear.</p>
+            </div>
+
+        </div>
+    </body>
+</html>

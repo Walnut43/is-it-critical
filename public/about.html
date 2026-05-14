@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>About</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark align-items-center" style="background-color: #1e2130;">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold" style="color: #e05c5c;" href="/index.html">Is It Critical?</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="home.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="help.html">Help</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container mt-4">
+            <div class="text-center mb-4">
+                <h3>About Is It Critical?</h3>
+                <h6><i>This web app uses the NVD API but is not endorsed or certified by the NVD</i></h6>
+            </div>
+
+            <!-- What is NVD -->
+            <div class="p-3 mb-3" style="background-color: #1e2130;">
+                <p class="fw-bold mb-1" style="color: #e05c5c;">What is the NVD?</p>
+                <p class="mb-0" style="color: #cdd6f4;">The National Vulnerability Database (NVD) is the U.S. government repository of standards-based vulnerability management data maintained by NIST. It provides detailed information on publicly disclosed cybersecurity vulnerabilities.</p>
+            </div>
+
+            <!-- What is a CVE -->
+            <div class="p-3 mb-3" style="background-color: #1e2130;">
+                <p class="fw-bold mb-1" style="color: #e05c5c;">What is a CVE?</p>
+                <p class="mb-0" style="color: #cdd6f4;">A CVE (Common Vulnerabilities and Exposures) is a publicly disclosed security vulnerability or exposure. Each CVE is assigned a unique ID (ex. CVE-2026-1234) and contains information about the vulnerability, its severity, and affected products.</p>
+            </div>
+
+            <!-- What is CVSS -->
+            <div class="p-3 mb-3" style="background-color: #1e2130;">
+                <p class="fw-bold mb-1" style="color: #e05c5c;">What is CVSS?</p>
+                <p class="mb-0" style="color: #cdd6f4;">The Common Vulnerability Scoring System (CVSS) is a standardized way of rating the severity of CVEs on a scale from 0 to 10. Scores are broken into four severity levels:</p>
+                <ul class="mt-2 mb-0" style="color: #cdd6f4;">
+                    <li><span style="color: #e05c5c;" class="fw-bold">Critical</span>: 9.0 to 10.0</li>
+                    <li><span style="color: #e8820c;" class="fw-bold">High</span>: 7.0 to 8.9</li>
+                    <li><span style="color: #e0c060;" class="fw-bold">Medium</span>: 4.0 to 6.9</li>
+                    <li><span style="color: #5ec875;" class="fw-bold">Low</span>: 0.1 to 3.9</li>
+                </ul>
+            </div>
+
+            <!-- What does this app do -->
+            <div class="p-3 mb-3" style="background-color: #1e2130;">
+                <p class="fw-bold mb-1" style="color: #e05c5c;">What does <i>Is It Critical?</i> do?</p>
+                <p class="mb-0" style="color: #cdd6f4;"><i>Is It Critical?</i> utilizes raw CVE data from the NVD to create a more user-friendly way of exploring it. It allows you to navigate recent CVEs, filter by severity or keyword, visualizes some trends, and drill down into specific vulnerabilities.</p>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="p-3 mb-3 border-start border-warning border-3" style="background-color: #1e2130;">
+                <p class="fw-bold mb-1 text-warning">Disclaimer</p>
+                <p class="mb-0" style="color: #cdd6f4;">This web app uses the NVD API but is not endorsed or certified by the NVD or NIST. Data may not reflect the most current vulnerability information. Always refer to the official NVD website at <a href="https://nvd.nist.gov" target="_blank" style="color: #378ADD;">nvd.nist.gov</a> for reliable information.</p>
+            </div>
+
+        </div>
+    </body>
+</html>
