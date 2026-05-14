@@ -1,5 +1,24 @@
 // supa lit home.js file
 
+// Sync button for CVEs from database:
+document.getElementById('sync-btn').addEventListener('click', async () => {
+    const btn = document.getElementById('sync-btn');
+    btn.textContent = 'Syncing...';
+    btn.disabled = true;
+
+    try {
+        const response = await fetch('/api/sync');
+        const result = await response.json();
+        btn.textContent = 'Sync NVD';
+        btn.disabled = false;
+        alert(result.message);
+    } catch (err) {
+        btn.textContent = 'Sync NVD';
+        btn.disabled = false;
+        alert('Sync failed. Try again.');
+    }
+});
+
 // Load the four summary cards:
 async function loadSummary() {
     // fetch info:
@@ -80,9 +99,6 @@ async function summaryVisuals () {
                 responsive: true,
             }
         });
-        
-        console.log(summaryRes);
-        console.log(vectorRes);
     } catch (err) {
         console.error("Stock fetch error:", err);
     }
